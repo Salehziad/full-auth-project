@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: "https://projects-prtfolio-server.herokuapp.com"+"/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       done(null, profile);
