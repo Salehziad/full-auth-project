@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      // callbackURL: "/auth/google/callback",
       callbackURL: process.env.NODE_ENV === "production"
       ? `${HOST}/${RETURN_URL}`
       : `${HOST}:${PORT}/${RETURN_URL}`,
