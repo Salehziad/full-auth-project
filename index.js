@@ -9,6 +9,7 @@ const pasportSetUp = require('./passport');
 const router = require('./routes/auth');
 const authRouter=require('./auth/router/index');
 const {db}=require('./models-connections');
+const session= require('express-session');
 const app = express();
 app.use(express.json());
 app.set("trust proxy", 1);
