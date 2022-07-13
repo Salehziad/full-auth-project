@@ -29,7 +29,7 @@ router.get("/login/failed", (req, res) => {
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
 router.get(
-  "https://projects-prtfolio-server.herokuapp.com/google/callback",
+  "/google/callback",
   passport.authenticate("google", {
     successRedirect: CLIENT_URL,
     failureRedirect: "/login/failed",
