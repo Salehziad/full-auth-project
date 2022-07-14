@@ -49,7 +49,7 @@ async function handleSignup(req, res, next) {
     next(e);
   }
 }
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = "https://salehziad-projects.netlify.app/";
 async function handleSignin(req, res, next) {
   // console.log('uuuuuuuuuuuuuuuuuuuuuuuuuuuuu',req.user);
   try {
