@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
-// const port = process.env.PORT;
+const port = process.env.PORT;
 const pasportSetUp = require('./passport');
 const router = require('./routes/auth');
 const authRouter=require('./auth/router/index');
@@ -42,8 +42,8 @@ app.use('/auth',authRouter);
 app.use('/admin',logsRoute);
 db.sync()
 .then(() => {
-  app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+    app.listen(port, () => {
+        console.log(`server is lestining 0n port ${port}`);
+    });
   });
 
