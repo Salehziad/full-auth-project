@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": " node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -27,6 +31,7 @@
     "passport-google-oauth": "^2.0.0",
     "pg": "^8.7.3",
     "random": "^3.0.6",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.2",
+    "serve": "^14.0.1"
   }
 }
