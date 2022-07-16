@@ -3,7 +3,7 @@
 const {
   users
 } = require('../../models-connections');
-console.log("Ddddddddddd", users)
+// console.log("Ddddddddddd", users)
 const {
   signupUsers
 } = require('../../models-connections');
@@ -74,7 +74,7 @@ async function handleSignup(req, res, next) {
     next(e);
   }
 }
-const CLIENT_URL = "https://salehziad-projects.netlify.app/";
+// const CLIENT_URL = "https://salehziad-projects.netlify.app/";
 async function handleSignin(req, res, next) {
   // console.log('uuuuuuuuuuuuuuuuuuuuuuuuuuuuu',req.user);
   try {
