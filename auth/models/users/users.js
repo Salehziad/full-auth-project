@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require("nodemailer");
 require('dotenv').config();
 const userSchema = (sequelize, DataTypes) => {
-  const model = sequelize.define('lllaaaaalssl', {
+  const model = sequelize.define('pp', {
     displayName: {
       type: DataTypes.STRING,
       allowNull: false,
