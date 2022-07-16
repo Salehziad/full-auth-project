@@ -14,9 +14,9 @@ const session= require('express-session');
 const app = express();
 app.use(express.json());
 app.set("trust proxy", 1);
-// app.use(
-//   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-// );
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 app.use(
   session({
     secret: "secretcode",
@@ -40,6 +40,9 @@ app.use(
 app.use('/auth', router);
 app.use('/auth',authRouter);
 app.use('/admin',logsRoute);
+app.get('/',(req, res) => {
+  res.send('welcome')
+})
 db.sync()
 .then(() => {
     app.listen(5000, () => {
