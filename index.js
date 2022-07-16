@@ -14,9 +14,9 @@ const session= require('express-session');
 const app = express();
 app.use(express.json());
 app.set("trust proxy", 1);
-// app.use(
-//   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-// );
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 app.use(
   session({
     secret: "secretcode",
