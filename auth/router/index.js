@@ -22,7 +22,7 @@ const {
 authRouter.post('/signup', handleSignup);
 authRouter.post('/verify',verifyCode)
 authRouter.post('/signin', basicAuth, handleSignin);
-authRouter.post('/users',  handleGetUsers);
+
 authRouter.delete('/delete/:id',bearerAuth,acl('read'),handleDeleteAccount);
 authRouter.delete('/deleteAny/:id',bearerAuth,acl('delete'),handleDeleteAnyUser)
 authRouter.put("/change/:id",bearerAuth,editAccount)

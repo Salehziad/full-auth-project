@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "https://salehziad-projects.netlify.app/";
-
+const CLIENT_URL = "http://localhost:3000/";
+// https://salehziad-projects.netlify.app/
 router.get("/login/success", (req, res) => {
   if (req.user) {
     res.status(200).json({

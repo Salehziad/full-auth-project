@@ -8,6 +8,7 @@ const PORT = process.env.PORT;
 const pasportSetUp = require('./passport');
 const router = require('./routes/auth');
 const authRouter=require('./auth/router/index');
+const logsRoute=require('./auth/logs/logsRoute');
 const {db}=require('./models-connections');
 const session= require('express-session');
 const app = express();
@@ -29,7 +30,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-      origin: "https://salehziad-projects.netlify.app",
+      // https://salehziad-projects.netlify.app
+      // http://localhost:3000/
+      origin: " http://localhost:3000",
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
@@ -42,3 +45,5 @@ db.sync()
         console.log(`server is lestining 0n port ${PORT}`);
     });
   });
+
+app.use('/admin',logsRoute);
