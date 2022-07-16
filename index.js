@@ -26,13 +26,12 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
     }
   }))
-        // origin:"https://salehziad-projects.netlify.app"
-      // http://localhost:3000/
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-      origin: " http://localhost:3000/",
+      // http://localhost:3000/
+      origin: "https://salehziad-projects.netlify.app",
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
