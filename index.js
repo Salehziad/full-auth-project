@@ -14,7 +14,9 @@ const session= require('express-session');
 const app = express();
 app.use(express.json());
 app.set("trust proxy", 1);
-
+app.use(
+  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
 app.use(
   session({
     secret: "secretcode",
@@ -30,14 +32,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-      origin:"http://localhost:3000/"
-      // origin: "https://salehziad-projects.netlify.app",
+      origin:"http://localhost:3000",
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
   );
 app.use('/auth', router);
 app.use('/auth',authRouter);
+app.use('/admin',logsRoute);
 db.sync()
 .then(() => {
     app.listen(PORT, () => {
@@ -45,4 +47,3 @@ db.sync()
     });
   });
 
-app.use('/admin',logsRoute);

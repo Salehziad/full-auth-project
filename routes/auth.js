@@ -1,10 +1,20 @@
 const router = require("express").Router();
 const passport = require("passport");
+const {
+  signInUsers
+} = require('../models-connections');
+const CLIENT_URL = "http://localhost:3000/";
 
-const CLIENT_URL = "https://salehziad-projects.netlify.app/";
-// https://salehziad-projects.netlify.app/
-router.get("/login/success", (req, res) => {
+router.get("/login/success", async(req, res) => {
   if (req.user) {
+    let logs = await signInUsers.create({
+      title: `user ${req.user.displayName} logged in`,
+      name: req.user.displayName,
+      email:"-",
+      role:"user",
+      method:"social",
+      date: new Date().toJSON()
+    })
     res.status(200).json({
       success: true,
       message: "successfull",
@@ -14,16 +24,16 @@ router.get("/login/success", (req, res) => {
   }
 });
 
-router.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect(CLIENT_URL);
-});
-
 router.get("/login/failed", (req, res) => {
   res.status(401).json({
     success: false,
     message: "failure",
   });
+});
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect(CLIENT_URL);
 });
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
@@ -35,6 +45,7 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
 router.get("/github", passport.authenticate("github", { scope: ["profile"] }));
 
 router.get(
@@ -44,6 +55,7 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
 router.get("/facebook", passport.authenticate("facebook", { scope: ["profile"] }));
 
 router.get(
@@ -54,13 +66,4 @@ router.get(
   })
 );
 
-router.post('/add',addUser);
-function addUser(req, res) {
-  const user={
-    name: req.body.name,
-    password:req.body.password
-  }
-  console.log(user);
-  res.send(user);
-}
-module.exports =router;
+module.exports = router

@@ -62,6 +62,9 @@ async function handleSignup(req, res, next) {
       let logs = await signupUsers.create({
         title: `user ${output.displayName} signup`,
         name: output.displayName,
+        email:output.email,
+        role:output.role,
+        method:"local",
         date: new Date().toJSON()
       })
       // console.log({logs})
@@ -97,6 +100,7 @@ async function handleSignin(req, res, next) {
           name: user.user.displayName,
           email:user.user.email,
           role:user.user.role,
+          method:"local",
           date: new Date().toJSON()
         })
         console.log({logs})
