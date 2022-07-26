@@ -1,15 +1,15 @@
 'use strict';
 require('dotenv').config();
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 const express = require('express');
-const cors = require('cors');
-const passport = require('passport');
-const port = process.env.PORT;
-const pasportSetUp = require('./passport');
-const router = require('./routes/auth');
-const authRouter = require('./auth/router/index');
-const logsRoute = require('./auth/logs/logsRoute');
-const { application } = require('express');
+// const cors = require('cors');
+// const passport = require('passport');
+// const port = process.env.PORT;
+// const pasportSetUp = require('./passport');
+// const router = require('./routes/auth');
+// const authRouter = require('./auth/router/index');
+// const logsRoute = require('./auth/logs/logsRoute');
+// const { application } = require('express');
 // const {
 //   db
 // } = require('./models-connections');
@@ -49,9 +49,7 @@ app.get('/',(req,res)=>{
 // app.get('/', (req, res) => {
 //   res.send('welcome')
 // })
-app.listen(port, () => {
-  console.log(`server is lestining 0n port ${port}`);
-});
+app.listen(process.env.PORT, () => console.log("Server Running"));
 // db.sync()
 // .then(() => {
 //     app.listen(port, () => {
