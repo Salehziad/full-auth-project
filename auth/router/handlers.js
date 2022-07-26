@@ -4,9 +4,9 @@ const {
   users
 } = require('../../models-connections');
 // console.log("Ddddddddddd", users)
-const {
-  signupUsers
-} = require('../../models-connections');
+// const {
+//   signupUsers
+// } = require('../../models-connections');
 const {
   verifySignUp
 } = require('../../models-connections');
@@ -58,17 +58,17 @@ async function handleSignup(req, res, next) {
       createdAt: userRecord.createdAt,
       updatedAt: userRecord.updatedAt
     };
-    if (output) {
-      let logs = await signupUsers.create({
-        title: `user ${output.displayName} signup`,
-        name: output.displayName,
-        email:output.email,
-        role:output.role,
-        method:"local",
-        date: new Date().toJSON()
-      })
-      // console.log({logs})
-    }
+    // if (output) {
+    //   let logs = await signupUsers.create({
+    //     title: `user ${output.displayName} signup`,
+    //     name: output.displayName,
+    //     email:output.email,
+    //     role:output.role,
+    //     method:"local",
+    //     date: new Date().toJSON()
+    //   })
+    //   // console.log({logs})
+    // }
 
     console.log(output.displayName);
     res.status(201).json(output);
