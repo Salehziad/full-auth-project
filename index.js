@@ -8,7 +8,7 @@ const port = process.env.PORT;
 const pasportSetUp = require('./passport');
 const router = require('./routes/auth');
 const authRouter = require('./auth/router/index');
-const logsRoute = require('./auth/logs/logsRoute');
+// const logsRoute = require('./auth/logs/logsRoute');
 const { application } = require('express');
 const {
   db
