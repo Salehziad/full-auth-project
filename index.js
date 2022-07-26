@@ -10,9 +10,9 @@ const express = require('express');
 // const authRouter = require('./auth/router/index');
 // const logsRoute = require('./auth/logs/logsRoute');
 // const { application } = require('express');
-// const {
-//   db
-// } = require('./models-connections');
+const {
+  db
+} = require('./models-connections');
 // const session = require('express-session');
 const app = express();
 app.get('/',(req,res)=>{
@@ -49,10 +49,10 @@ app.get('/',(req,res)=>{
 // app.get('/', (req, res) => {
 //   res.send('welcome')
 // })
-app.listen(process.env.PORT, () => console.log("Server Running"));
-// db.sync()
-// .then(() => {
-//     app.listen(port, () => {
-//         console.log(`server is lestining 0n port ${port}`);
-//     });
-//   });
+// app.listen(process.env.PORT, () => console.log("Server Running"));
+db.sync()
+.then(() => {
+    app.listen(port, () => {
+        console.log(`server is lestining 0n port ${port}`);
+    });
+  });
