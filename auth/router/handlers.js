@@ -7,6 +7,7 @@ const {
 const {
   signupUsers
 } = require('../../models-connections');
+console.log(signupUsers,"ddddddddddddddddd");
 const {
   verifySignUp
 } = require('../../models-connections');
