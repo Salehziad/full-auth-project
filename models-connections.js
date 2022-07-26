@@ -4,8 +4,7 @@ require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 const userSchema = require('./auth/models/users/users');
 const signUpSchema = require('./auth/models/users/sign-up-logs');
-// const verifySignUpSchema = require('./auth/logs/verify-sugn-up-logs');
-// const signInSchema = require('./auth/logs/sign-in-logs');
+const signInSchema = require('./auth/models/users/sign-in-logs');
 // console.log(signUpSchema)
 const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite::memory' : process.env.DATABASE_URL;
 
@@ -28,7 +27,7 @@ module.exports = {
   users: userSchema(sequelize, DataTypes),
   signupUsers:signUpSchema(sequelize, DataTypes),
   // verifySignUp:verifySignUpSchema(sequelize, DataTypes),
-  // signInUsers:signInSchema(sequelize, DataTypes),
+  signInUsers:signInSchema(sequelize, DataTypes),
   // food: new Collection(food),
   // goals: new Collection(goals),
 };

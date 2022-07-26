@@ -11,9 +11,9 @@ console.log(signupUsers,"ddddddddddddddddd");
 const {
   verifySignUp
 } = require('../../models-connections');
-// const {
-//   signInUsers
-// } = require('../../models-connections');
+const {
+  signInUsers
+} = require('../../models-connections');
 const {
   v4: uuidv4
 } = require('uuid');
@@ -90,14 +90,14 @@ async function handleSignin(req, res, next) {
     if (x === true) {
       
         console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-        // let logs = await signInUsers.create({
-        //   title: `user ${user.user.displayName} logged in `,
-        //   name: user.user.displayName,
-        //   email:user.user.email,
-        //   role:user.user.role,
-        //   method:"local",
-        //   date: new Date().toJSON()
-        // })
+        let logs = await signInUsers.create({
+          title: `user ${user.user.displayName} logged in `,
+          name: user.user.displayName,
+          email:user.user.email,
+          role:user.user.role,
+          method:"local",
+          date: new Date().toJSON()
+        })
         console.log({logs})
       res.status(200).json(user);
     } else {

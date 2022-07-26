@@ -1,20 +1,20 @@
 const router = require("express").Router();
 const passport = require("passport");
-// const {
-//   signInUsers
-// } = require('../models-connections');
+const {
+  signupUsers
+} = require('../models-connections');
 const CLIENT_URL = "http://localhost:3000/";
 
 router.get("/login/success", async(req, res) => {
   if (req.user) {
-    // let logs = await signInUsers.create({
-    //   title: `user ${req.user.displayName} logged in`,
-    //   name: req.user.displayName,
-    //   email:"-",
-    //   role:"user",
-    //   method:"social",
-    //   date: new Date().toJSON()
-    // })
+    let logs = await signInUsers.create({
+      title: `user ${req.user.displayName} logged in`,
+      name: req.user.displayName,
+      email:"-",
+      role:"user",
+      method:"social",
+      date: new Date().toJSON()
+    })
     res.status(200).json({
       success: true,
       message: "successfull",
