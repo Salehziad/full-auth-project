@@ -45,7 +45,7 @@ app.use(
 );
 app.use('/auth', router);
 app.use('/auth', authRouter);
-app.use('/admin', logsRoute);
+// app.use('/admin', logsRoute);
 app.get('/', (req, res) => {
   res.send('welcome')
 })
