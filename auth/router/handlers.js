@@ -87,12 +87,6 @@ async function handleSignin(req, res, next) {
     };
     let x = req.user.isVerify;
     if (x === true) {
-      // console.log("yesssssss");
-      // res.redirect('http://localhost:5000/auth/login/success'+user)
-      // passport.authenticate("google", {
-      //   successRedirect: CLIENT_URL,
-      //   failureRedirect: "/login/failed",
-      // })
       
         console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         let logs = await signInUsers.create({
@@ -168,17 +162,17 @@ async function verifyCode(req, res, next) {
         uuCode: code
       }
     });
-    console.log({
-      user
-    });
+    // console.log({
+    //   user
+    // });
     let y = user.isVerify;
-    console.log({
-      y
-    });
+    // console.log({
+    //   y
+    // });
     let usercode = user.uuCode;
     // console.log(usercode);
     if (code === usercode) {
-      console.log('ggggggggggggggggggg');
+      // console.log('ggggggggggggggggggg');
       // user.isVerify=true;
       let newUser = await user.update({
         isVerify: true
@@ -186,11 +180,6 @@ async function verifyCode(req, res, next) {
       let h = newUser.displayName
       // console.log({h})
       if (newUser) {
-        let logs = await verifySignUp.create({
-          title: `user ${newUser.displayName} veified`,
-          name: newUser.displayName,
-          date: new Date().toJSON()
-        })
         // console.log({logs});
         res.send(newUser)
         // res.redirect('http://localhost:5000/auth/login/success')

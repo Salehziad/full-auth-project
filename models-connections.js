@@ -4,7 +4,7 @@ require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 const userSchema = require('./auth/models/users/users');
 const signUpSchema = require('./auth/logs/sign-up-logs');
-const verifySignUpSchema = require('./auth/logs/verify-sugn-up-logs');
+// const verifySignUpSchema = require('./auth/logs/verify-sugn-up-logs');
 const signInSchema = require('./auth/logs/sign-in-logs');
 // console.log(signUpSchema)
 const { sign } = require('jsonwebtoken');
@@ -31,7 +31,7 @@ module.exports = {
   db: sequelize,
   users: userSchema(sequelize, DataTypes),
   signupUsers:signUpSchema(sequelize, DataTypes),
-  verifySignUp:verifySignUpSchema(sequelize, DataTypes),
+  // verifySignUp:verifySignUpSchema(sequelize, DataTypes),
   signInUsers:signInSchema(sequelize, DataTypes),
   // food: new Collection(food),
   // goals: new Collection(goals),

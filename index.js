@@ -17,17 +17,17 @@ app.set("trust proxy", 1);
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
 );
-app.use(
-  session({
-    secret: "secretcode",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      sameSite: "none",
-      secure: true,
-      maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
-    }
-  }))
+// app.use(
+//   session({
+//     secret: "secretcode",
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: {
+//       sameSite: "none",
+//       secure: true,
+//       maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
+//     }
+//   }))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(
