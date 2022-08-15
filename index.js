@@ -7,20 +7,20 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const app = express();
 const port=process.env.PORT
-app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-);
 // app.use(
-//   session({
-//     secret: "secretcode",
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: {
-//       sameSite: "none",
-//       secure: true,
-//       maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
-//     }
-//   }))
+//   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+// );
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
+    }
+  }))
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
