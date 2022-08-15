@@ -28,7 +28,10 @@ const userSchema = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get() {
         return jwt.sign({
-          displayName: this.displayName
+          displayName: this.displayName,
+          email: this.email,
+          role: this.role,
+          photos: this.photos
         }, process.env.SECRET);
       }
     }, //new

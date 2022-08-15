@@ -1,13 +1,10 @@
-require('dotenv').config();
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github2").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
 
 const GOOGLE_CLIENT_ID =process.env.GOOGLE_CLIENT_ID;
-
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-
 GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
@@ -20,7 +17,6 @@ passport.use(
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
-      proxy: true
     },
     function (accessToken, refreshToken, profile, done) {
       done(null, profile);
