@@ -32,7 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-      origin:"https://auth-salehziad.netlify.app/",
+      origin:"https://auth-salehziad.netlify.app",
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
