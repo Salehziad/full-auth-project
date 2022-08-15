@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
-// const port = process.env.PORT||5000;
+const port = process.env.PORT;
 const pasportSetUp = require('./passport');
 const router = require('./routes/auth');
 const authRouter=require('./auth/router/index');
@@ -45,7 +45,7 @@ app.get('/',(req, res) => {
 })
 db.sync()
 .then(() => {
-    app.listen(5000, () => {
-        console.log(`server is lestining 0n port ${5000}`);
+    app.listen(port, () => {
+        console.log(`server is lestining 0n port ${port}`);
     });
   });
