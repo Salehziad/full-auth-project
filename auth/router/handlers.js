@@ -19,7 +19,7 @@ const bcrypt = require('bcrypt');
 async function handleSignup(req, res, next) {
   try {
     const user = req.body
-    if (Object.keys(user).length === 0) {}
+    // if (Object.keys(user).length === 0) {}
     let x = user.displayName;
     if (x.length === 0) {
       res.status(403).send('no data entered')
