@@ -29,7 +29,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
     cors({
-      origin: "https://auth-app-salehziad.netlify.app",
+      // origin: "https://auth-app-salehziad.netlify.app",
+      // origin:'http://localhost:3000',
+      origin:'https://salehziad.github.io',
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
